@@ -8,7 +8,7 @@ jobs:
   build:
      steps: 
       - name: Setup IndexNow 
-        run: echo ${{ secrets.INDEXNOW_KEY }} > ${{ secrets.INDEXNOW_KEY }}.txt
+      -  run: echo ${{ secrets.INDEXNOW_KEY }} > ${{ secrets.INDEXNOW_KEY }}.txt
   deploy:
     runs-on: ubuntu-22.04
     steps:
