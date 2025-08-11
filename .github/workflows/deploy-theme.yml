@@ -6,9 +6,10 @@ on:
       - main
 jobs:
   build:
+     runs-on: ubuntu-latest
      steps: 
-      - name: Setup IndexNow 
-      -  run: echo ${{ secrets.INDEXNOW_KEY }} > ${{ secrets.INDEXNOW_KEY }}.txt
+      - name: Setup IndexNow # Generate files dynamically to prevent them from being leaked in public repositories.
+        run: echo ${{ secrets.INDEXNOW_KEY }} > ${{ secrets.INDEXNOW_KEY }}.txt
   deploy:
     runs-on: ubuntu-22.04
     steps:
