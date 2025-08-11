@@ -5,6 +5,10 @@ on:
       - master
       - main
 jobs:
+  build:
+     steps: 
+      - name: Setup IndexNow 
+        run: echo ${{ secrets.INDEXNOW_KEY }} > ${{ secrets.INDEXNOW_KEY }}.txt
   deploy:
     runs-on: ubuntu-22.04
     steps:
@@ -14,3 +18,4 @@ jobs:
         with:
           api-url: ${{ secrets.GHOST_ADMIN_API_URL }}
           api-key: ${{ secrets.GHOST_ADMIN_API_KEY }}
+   
