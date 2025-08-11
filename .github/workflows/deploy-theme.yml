@@ -11,7 +11,7 @@ jobs:
       - name: Setup IndexNow # Generate files dynamically to prevent them from being leaked in public repositories.
         run: echo ${{ secrets.INDEXNOW_KEY }} > ${{ secrets.INDEXNOW_KEY }}.txt
   deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Deploy Ghost Theme
