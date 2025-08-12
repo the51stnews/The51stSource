@@ -23,7 +23,7 @@
                     {{#match @custom.header_style "Highlight"}}
                         {{#if @custom.show_featured_posts}}
                             {{#match posts.length ">=" 4}}
-                                {{#get "posts" include="authors" limit="16"}}
+                                {{#get "posts" include="authors" limit="16" filter="tags:-[archived-newsletters,en-espanol,amharic-language]"}}
                                     {{#foreach posts from="5"}}
                                         {{> "post-card" lazyLoad=true}}
                                     {{/foreach}}
@@ -31,7 +31,7 @@
                             {{/match}}
                         {{else}}
                             {{#match posts.length ">=" 10}}
-                                {{#get "posts" include="authors" limit="22"}}
+                                {{#get "posts" include="authors" limit="22" filter="tags:-[archived-newsletters,en-espanol,amharic-language]"}}
                                     {{#foreach posts from="11"}}
                                         {{> "post-card" lazyLoad=true}}
                                     {{/foreach}}
@@ -58,7 +58,7 @@
                 {{!-- All posts --}}
                 {{#match feed "index"}}
                     {{#match pagination.page 2}}
-                        {{#get "posts" include="authors" limit=@config.posts_per_page as |recent|}}
+                        {{#get "posts" include="authors" filter="tags:-[archived-newsletters,en-espanol,amharic-language]" limit=@config.posts_per_page as |recent|}}
                             {{#foreach recent}}
                                 {{> "post-card"}}
                             {{/foreach}}
